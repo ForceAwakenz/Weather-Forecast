@@ -1,0 +1,11 @@
+<div class="avatar"></div>
+<div class="weather-data">
+	<p>{{ weatherData.date | date : 'EEEE' }}</p>
+	<p>
+		{{ weatherData.temperature }}<span class="degree">℃</span>
+		{{ weatherData.icon }}
+	</p>
+
+	<p>{{ weatherData.city }}</p>
+</div>
+<wt-counter [reverseCountTo]="tripDate" />

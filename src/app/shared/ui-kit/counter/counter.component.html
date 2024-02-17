@@ -1,0 +1,20 @@
+@if (timeLeft().days) {
+<div class="count">
+	<p>{{ timeLeft().days }}</p>
+	<p>Days</p>
+</div>
+} @if (timeLeft().hours){
+<div class="count">
+	<p>{{ timeLeft().hours }}</p>
+	<p>Hours</p>
+</div>
+}@if (timeLeft().minutes) {
+<div class="count">
+	<p>{{ timeLeft().minutes }}</p>
+	<p>Minutes</p>
+</div>
+}
+<div class="count">
+	<p>{{ timeLeft().seconds }}</p>
+	<p>Seconds</p>
+</div>
