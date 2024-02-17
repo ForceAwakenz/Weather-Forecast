@@ -1,0 +1,5 @@
+@import '../../../shared/style/mixins';
+
+:host {
+	@include defaultAlignCenter;
+}

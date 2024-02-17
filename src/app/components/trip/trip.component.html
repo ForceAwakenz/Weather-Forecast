@@ -1,0 +1,11 @@
+<img
+	[src]="cityPicturePath"
+	alt="{{ trip.city || 'City' }} Picture"
+	class="city-picture"
+/>
+<br />
+<p>{{ trip.city }}</p>
+<small
+	>{{ trip.startDate | date : 'dd.MM.yyyy' }} -
+	{{ trip.endDate | date : 'dd.MM.yyyy' }}
+</small>

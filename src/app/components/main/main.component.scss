@@ -1,0 +1,9 @@
+@import '../../shared/style/mixins';
+
+.forecast-container {
+	@include defaultAlignCenter;
+}
+
+.trips-container {
+	@include defaultAlignCenter;
+}
