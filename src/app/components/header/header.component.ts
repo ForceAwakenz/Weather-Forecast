@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { throttleTime } from 'rxjs';
+import { debounceTime } from 'rxjs';
 
 @Component({
 	selector: 'wt-header',
@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.filterInput.valueChanges
-			.pipe(throttleTime(300), takeUntilDestroyed(this.destroyRef))
+			.pipe(debounceTime(300), takeUntilDestroyed(this.destroyRef))
 			.subscribe(filterPhraze => {
 				this.filterChanged.emit(filterPhraze);
 			});
