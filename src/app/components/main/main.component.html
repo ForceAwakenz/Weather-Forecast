@@ -1,11 +1,20 @@
-<wt-header />
-<div class="trips-container">
-	<wt-trips />
-	<wt-add-trip />
-</div>
-<p>Week</p>
-<div class="forecast-container">
-	@for (forecast of forecasts; track $index) {
-	<wt-daily-forecast [forecast]="forecast" />
+<main>
+	<wt-header (filterChanged)="onFilter($event)" />
+	<div class="trips-container">
+		<wt-trips
+			[filterPhraze]="filterPhraze()"
+			(tripSelected)="selectTrip($event)"
+		/>
+		<wt-add-trip />
+	</div>
+	<p>Week</p>
+	@if (forecasts$ | async; as forecasts) {
+	<div class="forecast-container">
+		@for (forecast of forecasts; track $index) {
+		<wt-daily-forecast [forecast]="forecast" />
+		}
+	</div>
 	}
-</div>
+</main>
+
+<wt-weather-widget [currentTrip]="currentTrip()" />

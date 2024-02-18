@@ -5,7 +5,8 @@ export const apiKeyInterceptor: HttpInterceptorFn = (req, next) => {
 	const params = (req.params ?? new HttpParams())
 		.append('key', environment.apiKey)
 		.append('contentType', 'json')
-		.append('unitGroup', 'metric');
+		.append('unitGroup', 'metric')
+		.append('include', 'current');
 
 	const updatedReq = req.clone({
 		url: `${environment.apiUrl}${req.url}`,
