@@ -18,7 +18,10 @@ import { TripType } from '@src/app/shared/model/trip';
 })
 export class TripComponent implements OnInit {
 	@Input() trip!: TripType;
+
 	cityPicturePath!: string;
+	CITIES = CITIES;
+
 	ngOnInit() {
 		this.cityPicturePath = CITIES[this.trip.city].imagePath;
 	}

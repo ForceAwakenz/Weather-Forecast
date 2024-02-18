@@ -2,8 +2,9 @@ import {
 	ChangeDetectionStrategy,
 	Component,
 	Input,
+	OnChanges,
 	OnDestroy,
-	OnInit,
+	SimpleChange,
 	WritableSignal,
 	signal,
 } from '@angular/core';
@@ -24,26 +25,32 @@ import {
 	styleUrl: './counter.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CounterComponent implements OnInit, OnDestroy {
-	@Input() reverseCountTo!: Date;
+export class CounterComponent implements OnChanges, OnDestroy {
+	@Input() reverseCountTo!: Date | null;
 
 	timeLeft: WritableSignal<BreakedDownTimeType> = signal({
 		seconds: 0,
 	});
+
 	interval?: ReturnType<typeof setInterval>;
 
-	ngOnInit(): void {
-		this.interval = setInterval(this.updateCounter, 1000);
+	ngOnChanges(changes: Record<keyof this, SimpleChange>): void {
+		if (changes.reverseCountTo) {
+			this.interval || clearInterval(this.interval);
+			this.interval = setInterval(this.updateCounter, 1000);
+		}
 	}
 
 	ngOnDestroy(): void {
-		clearInterval(this.interval);
+		this.interval || clearInterval(this.interval);
 	}
 
 	updateCounter = () => {
-		const rawTimeDifference =
-			this.reverseCountTo.getTime() - dateNowInMilliseconds();
-		if (rawTimeDifference >= 0) {
+		const rawTimeDifference = this.reverseCountTo
+			? this.reverseCountTo.getTime() - dateNowInMilliseconds()
+			: 0;
+
+		if (rawTimeDifference > 990) {
 			this.timeLeft.set({
 				days: getDays(rawTimeDifference),
 				hours: getHours(rawTimeDifference),
@@ -54,6 +61,7 @@ export class CounterComponent implements OnInit, OnDestroy {
 			this.timeLeft.set({
 				seconds: 0,
 			});
+			this.interval || clearInterval(this.interval);
 		}
 	};
 }

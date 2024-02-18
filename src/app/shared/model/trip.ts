@@ -1,24 +1,6 @@
-export type CityKeys =
-	| 'Kyiv'
-	| 'Lviv'
-	| 'Tokyo'
-	| 'Delhi'
-	| 'Shanghai'
-	| 'Paris'
-	| 'Dubai'
-	| 'NewYorkCity'
-	| 'Istanbul'
-	| 'KualaLumpur'
-	| 'Barcelona'
-	| 'Amsterdam'
-	| 'LosAngeles'
-	| 'Rome'
-	| 'London'
-	| 'Bangkok'
-	| 'Prague'
-	| 'HongKong'
-	| 'Singapore'
-	| 'Seoul';
+import { CITIES } from '../constants/cities.constant';
+
+export type CityKeys = keyof typeof CITIES;
 
 export type TripType = {
 	city: CityKeys;
@@ -30,4 +12,5 @@ export type CityDataType = {
 	city: CityKeys;
 	requestKey: string;
 	imagePath: `assets/${string}`;
+	readableName: string;
 };

@@ -1,7 +1,6 @@
 import {
 	ChangeDetectionStrategy,
 	Component,
-	OnInit,
 	WritableSignal,
 	inject,
 	signal,
@@ -12,11 +11,12 @@ import { AddTripComponent } from '@src/app/shared/ui-kit/add-trip/add-trip.compo
 import { DailyForecastComponent } from '@src/app/shared/ui-kit/daily-forecast/daily-forecast.component';
 import { TripType } from '@src/app/shared/model/trip';
 import { toObservable } from '@angular/core/rxjs-interop';
-import { filter, map, switchMap } from 'rxjs';
+import { distinctUntilChanged, filter, map, switchMap } from 'rxjs';
 import { WeatherService } from '@src/app/shared/services/weather.service';
 import { CITIES } from '@src/app/shared/constants/cities.constant';
 import { AsyncPipe } from '@angular/common';
 import { ICONS } from '@src/app/shared/constants/weather-icons.constant';
+import { WeatherWidgetComponent } from '../weather-widget/weather-widget.component';
 
 @Component({
 	selector: 'wt-main',
@@ -27,12 +27,13 @@ import { ICONS } from '@src/app/shared/constants/weather-icons.constant';
 		TripsComponent,
 		AddTripComponent,
 		DailyForecastComponent,
+		WeatherWidgetComponent,
 	],
 	templateUrl: './main.component.html',
 	styleUrl: './main.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MainComponent implements OnInit {
+export class MainComponent {
 	private weatherService = inject(WeatherService);
 
 	filterPhraze = signal<string>('');
@@ -40,6 +41,7 @@ export class MainComponent implements OnInit {
 
 	forecasts$ = toObservable(this.currentTrip).pipe(
 		filter(Boolean),
+		distinctUntilChanged(),
 		switchMap(trip =>
 			this.weatherService.getWeather(
 				CITIES[trip.city].requestKey,
@@ -56,49 +58,7 @@ export class MainComponent implements OnInit {
 		this.filterPhraze.set(filterPhraze);
 	}
 
-	ngOnInit(): void {
-		this.forecasts$.subscribe(console.log);
-	}
-
 	selectTrip(trip: TripType | null): void {
 		this.currentTrip.set(trip);
 	}
-
-	// forecasts: DayForecastType[] = [
-	// 	{
-	// 		datetime: '2021-07-27T12:00:00.000Z',
-	// 		temp: 28,
-	// 		icon: '☀️',
-	// 		tempmax: 30,
-	// 		tempmin: 26,
-	// 	},
-	// 	{
-	// 		datetime: '2021-07-28T12:00:00.000Z',
-	// 		temp: 30,
-	// 		icon: '☀️',
-	// 		tempmax: 32,
-	// 		tempmin: 27,
-	// 	},
-	// 	{
-	// 		datetime: '2021-07-29T12:00:00.000Z',
-	// 		temp: 31,
-	// 		icon: '🌫️',
-	// 		tempmax: 33,
-	// 		tempmin: 28,
-	// 	},
-	// 	{
-	// 		datetime: '2021-07-30T12:00:00.000Z',
-	// 		temp: 29,
-	// 		icon: '☁️',
-	// 		tempmax: 31,
-	// 		tempmin: 27,
-	// 	},
-	// 	{
-	// 		datetime: '2021-07-31T12:00:00.000Z',
-	// 		temp: 28,
-	// 		icon: '💨',
-	// 		tempmax: 30,
-	// 		tempmin: 26,
-	// 	},
-	// ];
 }

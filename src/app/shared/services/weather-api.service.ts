@@ -12,9 +12,10 @@ export class WeatherApiService {
 	getWeather(
 		city: string,
 		startDate: string,
-		endDate: string
+		endDate?: string
 	): Observable<WeatherResponseType> {
-		const url = encodeURI(`${city}/${startDate}/${endDate}`);
+		const endDateQuery = endDate ? `/${endDate}` : '';
+		const url = encodeURI(`${city}/${startDate}${endDateQuery}`);
 		return this.http.get<WeatherResponseType>(url);
 	}
 }

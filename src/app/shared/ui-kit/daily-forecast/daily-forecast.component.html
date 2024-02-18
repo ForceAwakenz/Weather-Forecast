@@ -4,4 +4,5 @@
 <p>
 	{{ forecast.icon }}
 </p>
-{{ forecast.tempmax }}°/ {{ forecast.tempmin }}°
+{{ forecast.tempmax | number : '1.0-0' }}°/
+{{ forecast.tempmin | number : '1.0-0' }}°

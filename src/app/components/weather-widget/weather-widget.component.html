@@ -1,11 +1,17 @@
 <div class="avatar"></div>
-<div class="weather-data">
-	<p>{{ weatherData.date | date : 'EEEE' }}</p>
-	<p>
-		{{ weatherData.temperature }}<span class="degree">℃</span>
-		{{ weatherData.icon }}
-	</p>
 
-	<p>{{ weatherData.city }}</p>
+@if (currentWeather$ | async; as currentWeather) {
+<div class="weather-data">
+	<p>{{ currentWeather.datetime | date : 'EEEE' }}</p>
+	<p>
+		{{ currentWeather.temp | number : '1.0-0' }}<span class="degree">℃</span>
+		{{ currentWeather.icon }}
+	</p>
 </div>
-<wt-counter [reverseCountTo]="tripDate" />
+}
+<!--  -->
+@if (currentTrip()) {
+<p>{{ CITIES[currentTrip()!.city].readableName }}</p>
+
+<wt-counter [reverseCountTo]="currentTrip()!.startDate" />
+}

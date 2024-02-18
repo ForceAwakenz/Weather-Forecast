@@ -1,5 +1,10 @@
 @import '../../shared/style/mixins';
 
+:host {
+	display: grid;
+	grid-template-columns: 7fr 3fr;
+}
+
 .forecast-container {
 	@include defaultAlignCenter;
 }
