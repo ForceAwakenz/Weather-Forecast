@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { TripsComponent } from '../trips/trips.component';
 import { AddTripComponent } from '@src/app/shared/ui-kit/add-trip/add-trip.component';
 import { DailyForecastComponent } from '@src/app/shared/ui-kit/daily-forecast/daily-forecast.component';
-import { ForecastType } from '@src/app/shared/models/forecast';
+import { ForecastType } from '@src/app/shared/model/forecast';
 
 @Component({
 	selector: 'wt-main',
@@ -19,6 +19,12 @@ import { ForecastType } from '@src/app/shared/models/forecast';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainComponent {
+	filterPhraze = signal('');
+
+	onFilter(filterPhraze: string): void {
+		this.filterPhraze.set(filterPhraze);
+	}
+
 	forecasts: ForecastType[] = [
 		{
 			datetime: '2021-07-27T12:00:00.000Z',

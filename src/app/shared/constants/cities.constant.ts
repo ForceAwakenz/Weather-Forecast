@@ -1,4 +1,6 @@
-export const CITIES = {
+import { CityDataType, CityKeys } from '../model/trip';
+
+export const CITIES: Record<CityKeys, CityDataType> = {
 	Kyiv: {
 		city: 'Kyiv',
 		requestKey: 'Kyiv, Ukraine',
@@ -99,4 +101,4 @@ export const CITIES = {
 		requestKey: 'Prague, Czech Republic',
 		imagePath: 'assets/pictures/cities/prague.jpg',
 	},
-};
+} as const;

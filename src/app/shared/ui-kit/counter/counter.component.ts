@@ -7,8 +7,9 @@ import {
 	WritableSignal,
 	signal,
 } from '@angular/core';
-import { BreakedDownTimeType } from '../../models/time';
+import { BreakedDownTimeType } from '../../model/time';
 import {
+	dateNowInMilliseconds,
 	getDays,
 	getHours,
 	getMinutes,
@@ -41,7 +42,7 @@ export class CounterComponent implements OnInit, OnDestroy {
 
 	updateCounter = () => {
 		const rawTimeDifference =
-			this.reverseCountTo.getTime() - new Date().getTime();
+			this.reverseCountTo.getTime() - dateNowInMilliseconds();
 		if (rawTimeDifference >= 0) {
 			this.timeLeft.set({
 				days: getDays(rawTimeDifference),

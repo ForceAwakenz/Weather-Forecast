@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ForecastType } from '../../models/forecast';
+import { ForecastType } from '../../model/forecast';
 import { DatePipe } from '@angular/common';
 
 @Component({

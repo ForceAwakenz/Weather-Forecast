@@ -6,7 +6,7 @@ import {
 	OnInit,
 } from '@angular/core';
 import { CITIES } from '@src/app/shared/constants/cities.constant';
-import { TripType } from '@src/app/shared/models/trip';
+import { TripType } from '@src/app/shared/model/trip';
 
 @Component({
 	selector: 'wt-trip',

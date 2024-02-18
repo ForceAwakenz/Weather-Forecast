@@ -1,6 +1,6 @@
-<wt-header />
+<wt-header (filterChanged)="onFilter($event)" />
 <div class="trips-container">
-	<wt-trips />
+	<wt-trips [filterPhraze]="filterPhraze()" />
 	<wt-add-trip />
 </div>
 <p>Week</p>

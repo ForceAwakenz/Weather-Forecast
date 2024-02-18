@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { WeatherDataType } from '@src/app/shared/models/weather-data';
+import { WeatherDataType } from '@src/app/shared/model/weather-data';
 import { CounterComponent } from '@src/app/shared/ui-kit/counter/counter.component';
 
 @Component({
