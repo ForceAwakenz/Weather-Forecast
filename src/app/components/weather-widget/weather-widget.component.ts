@@ -8,8 +8,8 @@ import {
 } from '@angular/core';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { CITIES } from '@src/app/shared/constants/cities.constant';
-import { TripType } from '@src/app/shared/model/trip';
-import { WeatherService } from '@src/app/shared/services/weather.service';
+import { TripType } from '@src/app/model/trip';
+import { WeatherService } from '@src/app/services/weather.service';
 import { CounterComponent } from '@src/app/shared/ui-kit/counter/counter.component';
 import { distinctUntilKeyChanged, filter, map, switchMap } from 'rxjs';
 

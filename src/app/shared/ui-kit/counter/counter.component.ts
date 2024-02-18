@@ -8,7 +8,7 @@ import {
 	WritableSignal,
 	signal,
 } from '@angular/core';
-import { BreakedDownTimeType } from '../../model/time';
+import { BreakedDownTimeType } from '../../../model/time';
 import {
 	dateNowInMilliseconds,
 	getDays,

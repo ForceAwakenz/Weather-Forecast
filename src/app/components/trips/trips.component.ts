@@ -10,9 +10,9 @@ import {
 	EventEmitter,
 } from '@angular/core';
 import { TripComponent } from '../trip/trip.component';
-import { TripType } from '@src/app/shared/model/trip';
+import { TripType } from '@src/app/model/trip';
 import { AddTripComponent } from '@src/app/shared/ui-kit/add-trip/add-trip.component';
-import { StorageService } from '@src/app/shared/services/storage.service';
+import { StorageService } from '@src/app/services/storage.service';
 
 @Component({
 	selector: 'wt-trips',
