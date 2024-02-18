@@ -1,5 +1,9 @@
+@if (trips().length > 0) {
 <div class="trips-wrapper">
 	@for (trip of trips(); track $index) {
-	<wt-trip [trip]="trip" />
+	<wt-trip [trip]="trip" (click)="onSelect(trip)" />
 	}
 </div>
+} @else {
+<p>No trips found</p>
+}

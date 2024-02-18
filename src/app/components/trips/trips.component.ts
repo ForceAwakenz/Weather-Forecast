@@ -6,12 +6,12 @@ import {
 	input,
 	Signal,
 	computed,
+	Output,
+	EventEmitter,
 } from '@angular/core';
 import { TripComponent } from '../trip/trip.component';
 import { TripType } from '@src/app/shared/model/trip';
 import { AddTripComponent } from '@src/app/shared/ui-kit/add-trip/add-trip.component';
-import { WeatherService } from '@src/app/shared/services/weather.service';
-import { CITIES } from '@src/app/shared/constants/cities.constant';
 import { StorageService } from '@src/app/shared/services/storage.service';
 
 @Component({
@@ -23,9 +23,11 @@ import { StorageService } from '@src/app/shared/services/storage.service';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TripsComponent implements OnInit {
+	@Output() tripSelected = new EventEmitter<TripType | null>();
 	filterPhraze = input('');
-	weatherService = inject(WeatherService);
-	storageService = inject(StorageService);
+
+	private storageService = inject(StorageService);
+
 	trips: Signal<TripType[]> = computed(() =>
 		this.storageService
 			.getTrips()
@@ -35,13 +37,10 @@ export class TripsComponent implements OnInit {
 	);
 
 	ngOnInit(): void {
-		this.weatherService.getWeather(
-			CITIES.NewYorkCity.requestKey,
-			'2024-02-19',
-			'2024-02-21'
-		);
-		// .subscribe(weather => {
-		// 	console.log(weather);
-		// });
+		this.tripSelected.emit(this.trips()[0]);
+	}
+
+	onSelect(trip: TripType): void {
+		this.tripSelected.emit(trip);
 	}
 }

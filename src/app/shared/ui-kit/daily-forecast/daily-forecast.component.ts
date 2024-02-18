@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ForecastType } from '../../model/forecast';
 import { DatePipe } from '@angular/common';
+import { DayForecastType } from '../../model/http';
 
 @Component({
 	selector: 'wt-daily-forecast',
@@ -11,5 +11,5 @@ import { DatePipe } from '@angular/common';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DailyForecastComponent {
-	@Input() forecast!: ForecastType;
+	@Input() forecast!: DayForecastType;
 }

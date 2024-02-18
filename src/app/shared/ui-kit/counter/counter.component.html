@@ -3,12 +3,12 @@
 	<p>{{ timeLeft().days }}</p>
 	<p>Days</p>
 </div>
-} @if (timeLeft().hours){
+} @if (timeLeft().hours || timeLeft().days){
 <div class="count">
 	<p>{{ timeLeft().hours }}</p>
 	<p>Hours</p>
 </div>
-}@if (timeLeft().minutes) {
+}@if (timeLeft().minutes || timeLeft().hours || timeLeft().days){
 <div class="count">
 	<p>{{ timeLeft().minutes }}</p>
 	<p>Minutes</p>
