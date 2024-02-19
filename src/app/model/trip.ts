@@ -1,11 +1,11 @@
-import { CITIES } from '../shared/constants/cities.constant';
+import { CITIES } from '@shared/constants/cities.constant';
 
 export type CityKeys = keyof typeof CITIES;
 
 export type TripType = {
 	city: CityKeys;
-	startDate: Date;
-	endDate: Date;
+	startDate: string;
+	endDate: string;
 };
 
 export type CityDataType = {

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { DatePipe, DecimalPipe } from '@angular/common';
-import { DayForecastType } from '../../../model/http';
+import { DayForecastType } from '@app/model/http';
 
 @Component({
 	selector: 'wt-daily-forecast',

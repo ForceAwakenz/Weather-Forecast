@@ -8,14 +8,14 @@ import {
 	WritableSignal,
 	signal,
 } from '@angular/core';
-import { BreakedDownTimeType } from '../../../model/time';
+import { BreakedDownTimeType } from '@app/model/time';
 import {
 	dateNowInMilliseconds,
 	getDays,
 	getHours,
 	getMinutes,
 	getSeconds,
-} from '../../utils/time.utils';
+} from '@shared/utils/time.utils';
 
 @Component({
 	selector: 'wt-counter',
@@ -26,7 +26,7 @@ import {
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CounterComponent implements OnChanges, OnDestroy {
-	@Input() reverseCountTo!: Date | null;
+	@Input() reverseCountTo!: string | null;
 
 	timeLeft: WritableSignal<BreakedDownTimeType> = signal({
 		seconds: 0,
@@ -35,7 +35,11 @@ export class CounterComponent implements OnChanges, OnDestroy {
 	interval?: ReturnType<typeof setInterval>;
 
 	ngOnChanges(changes: Record<keyof this, SimpleChange>): void {
-		if (changes.reverseCountTo) {
+		if (
+			changes.reverseCountTo &&
+			changes.reverseCountTo.currentValue !==
+				changes.reverseCountTo.previousValue
+		) {
 			this.interval || clearInterval(this.interval);
 			this.interval = setInterval(this.updateCounter, 1000);
 		}
@@ -47,7 +51,7 @@ export class CounterComponent implements OnChanges, OnDestroy {
 
 	updateCounter = () => {
 		const rawTimeDifference = this.reverseCountTo
-			? this.reverseCountTo.getTime() - dateNowInMilliseconds()
+			? new Date(this.reverseCountTo).getTime() - dateNowInMilliseconds()
 			: 0;
 
 		if (rawTimeDifference > 990) {

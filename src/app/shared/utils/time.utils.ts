@@ -14,3 +14,6 @@ export const convertDaysToMilliseconds = (days: number): number =>
 	days * 1000 * 60 * 60 * 24;
 
 export const dateNowInMilliseconds = (): number => new Date().getTime();
+
+export const convertToSimpleDayFormat = (date: Date): string =>
+	date.toISOString().slice(0, 10);
