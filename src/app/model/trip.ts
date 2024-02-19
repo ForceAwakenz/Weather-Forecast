@@ -1,4 +1,4 @@
-import { CITIES } from '../shared/constants/cities.constant';
+import { CITIES } from '@shared/constants/cities.constant';
 
 export type CityKeys = keyof typeof CITIES;
 

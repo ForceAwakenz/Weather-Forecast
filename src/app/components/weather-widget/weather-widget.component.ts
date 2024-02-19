@@ -1,4 +1,4 @@
-import { ICONS } from './../../shared/constants/weather-icons.constant';
+import { ICONS } from '@shared/constants/weather-icons.constant';
 import { AsyncPipe, DatePipe, DecimalPipe } from '@angular/common';
 import {
 	ChangeDetectionStrategy,

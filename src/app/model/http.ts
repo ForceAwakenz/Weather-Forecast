@@ -1,4 +1,4 @@
-import { ICONS } from '../shared/constants/weather-icons.constant';
+import { ICONS } from '@shared/constants/weather-icons.constant';
 
 type DailyForecastBaseType = {
 	temp: number;

@@ -9,7 +9,7 @@ import {
 	Output,
 	EventEmitter,
 } from '@angular/core';
-import { TripComponent } from '../trip/trip.component';
+import { TripComponent } from '@app/components/trip/trip.component';
 import { TripType } from '@src/app/model/trip';
 import { AddTripComponent } from '@src/app/shared/ui-kit/add-trip/add-trip.component';
 import { StorageService } from '@src/app/services/storage.service';

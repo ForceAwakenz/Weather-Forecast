@@ -5,8 +5,8 @@ import {
 	inject,
 	signal,
 } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
-import { TripsComponent } from '../trips/trips.component';
+import { HeaderComponent } from '@app/components/header/header.component';
+import { TripsComponent } from '@app/components/trips/trips.component';
 import { AddTripComponent } from '@src/app/shared/ui-kit/add-trip/add-trip.component';
 import { DailyForecastComponent } from '@src/app/shared/ui-kit/daily-forecast/daily-forecast.component';
 import { TripType } from '@src/app/model/trip';
@@ -16,7 +16,7 @@ import { WeatherService } from '@src/app/services/weather.service';
 import { CITIES } from '@src/app/shared/constants/cities.constant';
 import { AsyncPipe } from '@angular/common';
 import { ICONS } from '@src/app/shared/constants/weather-icons.constant';
-import { WeatherWidgetComponent } from '../weather-widget/weather-widget.component';
+import { WeatherWidgetComponent } from '@app/components/weather-widget/weather-widget.component';
 
 @Component({
 	selector: 'wt-main',

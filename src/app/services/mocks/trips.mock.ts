@@ -1,8 +1,8 @@
-import { CITIES } from '../../shared/constants/cities.constant';
+import { CITIES } from '@shared/constants/cities.constant';
 import {
 	convertDaysToMilliseconds,
 	dateNowInMilliseconds,
-} from '../../shared/utils/time.utils';
+} from '@shared/utils/time.utils';
 
 export const TRIPS_MOCK = [
 	{
