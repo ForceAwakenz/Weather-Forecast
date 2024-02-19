@@ -12,6 +12,7 @@ import { TripType } from '@src/app/model/trip';
 import { WeatherService } from '@src/app/services/weather.service';
 import { CounterComponent } from '@src/app/shared/ui-kit/counter/counter.component';
 import { distinctUntilKeyChanged, filter, map, switchMap } from 'rxjs';
+import { convertToSimpleDayFormat } from '@src/app/shared/utils/time.utils';
 
 @Component({
 	selector: 'wt-weather-widget',
@@ -34,7 +35,7 @@ export class WeatherWidgetComponent {
 		switchMap(trip =>
 			this.weatherService.getWeather(
 				CITIES[trip.city].requestKey,
-				new Date().toISOString()
+				convertToSimpleDayFormat(new Date())
 			)
 		),
 		map(response => response.days[0]),

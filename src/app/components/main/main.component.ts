@@ -17,6 +17,7 @@ import { CITIES } from '@src/app/shared/constants/cities.constant';
 import { AsyncPipe } from '@angular/common';
 import { ICONS } from '@src/app/shared/constants/weather-icons.constant';
 import { WeatherWidgetComponent } from '@app/components/weather-widget/weather-widget.component';
+import { convertToSimpleDayFormat } from '@src/app/shared/utils/time.utils';
 
 @Component({
 	selector: 'wt-main',
@@ -45,8 +46,8 @@ export class MainComponent {
 		switchMap(trip =>
 			this.weatherService.getWeather(
 				CITIES[trip.city].requestKey,
-				trip.startDate.toISOString(),
-				trip.endDate.toISOString()
+				convertToSimpleDayFormat(new Date(trip.startDate)),
+				convertToSimpleDayFormat(new Date(trip.endDate))
 			)
 		),
 		map(response =>

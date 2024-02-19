@@ -4,8 +4,8 @@ export type CityKeys = keyof typeof CITIES;
 
 export type TripType = {
 	city: CityKeys;
-	startDate: Date;
-	endDate: Date;
+	startDate: string;
+	endDate: string;
 };
 
 export type CityDataType = {

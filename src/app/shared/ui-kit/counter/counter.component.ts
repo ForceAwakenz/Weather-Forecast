@@ -26,7 +26,7 @@ import {
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CounterComponent implements OnChanges, OnDestroy {
-	@Input() reverseCountTo!: Date | null;
+	@Input() reverseCountTo!: string | null;
 
 	timeLeft: WritableSignal<BreakedDownTimeType> = signal({
 		seconds: 0,
@@ -51,7 +51,7 @@ export class CounterComponent implements OnChanges, OnDestroy {
 
 	updateCounter = () => {
 		const rawTimeDifference = this.reverseCountTo
-			? this.reverseCountTo.getTime() - dateNowInMilliseconds()
+			? new Date(this.reverseCountTo).getTime() - dateNowInMilliseconds()
 			: 0;
 
 		if (rawTimeDifference > 990) {

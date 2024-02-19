@@ -1,1 +1,12 @@
-<p>modal works!</p>
+@if (options?.component) {
+
+<nav>
+	{{ options?.title }}
+	<button (click)="closeModal()">Ｘ</button>
+</nav>
+<hr />
+<div>
+	<ng-container *ngComponentOutlet="options?.component ?? null"></ng-container>
+</div>
+
+}

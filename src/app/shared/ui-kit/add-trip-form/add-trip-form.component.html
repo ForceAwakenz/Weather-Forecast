@@ -1,0 +1,41 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+	<label for="city"><span>*</span>City</label>
+	<select name="city" id="city" formControlName="city">
+		<option value="">Please select an option</option>
+		<option value="Kyiv">Kyiv</option>
+		<option value="Lviv">Lviv</option>
+	</select>
+	@if (form.get('city')?.touched && form.get('city')?.errors?.['required']) {
+	<small>This field is required</small>
+	}
+
+	<label for="trip"><span>*</span>Start date</label>
+	<input
+		formControlName="startDate"
+		type="date"
+		id="starts-from"
+		placeholder="Select date"
+		[min]="dateRestrictions.min"
+		[max]="dateRestrictions.max"
+	/>
+	@if (form.get('startDate')?.touched &&
+	form.get('startDate')?.errors?.['required']) {
+	<small>This field is required</small>
+	}
+
+	<label for="trip"><span>*</span>End date</label>
+	<input
+		formControlName="endDate"
+		type="date"
+		placeholder="Select date"
+		[min]="dateRestrictions.min"
+		[max]="dateRestrictions.max"
+	/>
+	@if (form.get('endDate')?.touched &&
+	form.get('endDate')?.errors?.['required']) {
+	<small>This field is required</small>
+	}
+
+	<button (click)="closeModal()">Cancel</button>
+	<button type="submit" [disabled]="form.invalid">Save</button>
+</form>
