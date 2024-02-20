@@ -1,3 +1,5 @@
+// I know there are Date methods for this, but not all of them return predictable results
+// TODO: write jsdoc
 export const getDays = (timeInMs: number): number =>
 	Math.floor(timeInMs / (1000 * 60 * 60 * 24));
 
