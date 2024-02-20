@@ -14,6 +14,8 @@ export class AddTripComponent {
 	modalService = inject(ModalService);
 
 	onAddTrip() {
+		// TODO: remove logic from representational component
+		// TODO: question if we need this component separately
 		this.modalService.showInModal(AddTripFormComponent, {
 			title: 'Create trip',
 			approveBtnText: 'Save',
