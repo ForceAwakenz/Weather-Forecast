@@ -2,7 +2,7 @@
 
 .trips-wrapper {
 	display: flex;
-	overflow-x: scroll;
+	overflow-x: auto;
 	scroll-snap-type: x mandatory;
 	width: calc($card-width * 3);
 
@@ -17,5 +17,10 @@
 	&::-webkit-scrollbar-thumb {
 		background-color: gray;
 		border-radius: 5px;
+	}
+
+	@-moz-document url-prefix() {
+		scrollbar-color: gray lightgrey;
+		scrollbar-width: thin;
 	}
 }

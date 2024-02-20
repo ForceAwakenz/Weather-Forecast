@@ -1,6 +1,6 @@
 @if (trips().length > 0) {
 <div class="trips-wrapper">
-	@for (trip of trips(); track $index) {
+	@for (trip of trips(); track trip.id) {
 	<wt-trip [trip]="trip" (click)="onSelect(trip)" />
 	}
 </div>

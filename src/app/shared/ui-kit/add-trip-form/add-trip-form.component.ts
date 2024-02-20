@@ -50,8 +50,7 @@ export class AddTripFormComponent implements OnInit {
 
 	onSubmit() {
 		const trip = { ...this.form.value };
-		trip.startDate = new Date(trip.startDate);
-		trip.endDate = new Date(trip.endDate);
+		trip.id = crypto.randomUUID();
 
 		this.storageService.addTrip(trip);
 		console.log(this.form);
