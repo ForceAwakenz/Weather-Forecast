@@ -17,7 +17,7 @@ import {
 	Validators,
 } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
-import { StorageService } from '@src/app/services/storage.service';
+import { STORAGE_SERVICE } from '@src/app/services/providers/storage';
 
 @Component({
 	selector: 'wt-add-trip-form',
@@ -29,7 +29,7 @@ import { StorageService } from '@src/app/services/storage.service';
 })
 export class AddTripFormComponent implements OnInit {
 	private modalService = inject(ModalService);
-	private storageService = inject(StorageService);
+	private storageService = inject(STORAGE_SERVICE);
 	private fb = inject(FormBuilder);
 
 	form!: FormGroup;
@@ -50,7 +50,6 @@ export class AddTripFormComponent implements OnInit {
 
 	onSubmit() {
 		const trip = { ...this.form.value };
-		trip.id = crypto.randomUUID();
 
 		this.storageService.addTrip(trip);
 		console.log(this.form);

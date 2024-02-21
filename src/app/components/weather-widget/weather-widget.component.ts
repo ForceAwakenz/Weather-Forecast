@@ -1,5 +1,4 @@
 import { ICONS } from '@shared/constants/weather-icons.constant';
-import { AsyncPipe, DatePipe, DecimalPipe } from '@angular/common';
 import {
 	ChangeDetectionStrategy,
 	Component,
@@ -15,11 +14,12 @@ import { distinctUntilKeyChanged, filter, map, switchMap } from 'rxjs';
 import { convertToSimpleDayFormat } from '@src/app/shared/utils/time.utils';
 import { ModalService } from '@src/app/services/modal.service';
 import { AuthComponent } from '@src/app/shared/ui-kit/auth/auth.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
 	selector: 'wt-weather-widget',
 	standalone: true,
-	imports: [DatePipe, CounterComponent, AsyncPipe, DecimalPipe],
+	imports: [CounterComponent, CommonModule],
 	templateUrl: './weather-widget.component.html',
 	styleUrl: './weather-widget.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,

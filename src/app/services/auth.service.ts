@@ -21,9 +21,8 @@ export class AuthService {
 
 	googleLogin() {
 		signInWithPopup(this.auth, this.googleProvider).then(result => {
-			const credential = GoogleAuthProvider.credentialFromResult(result);
-			console.log('credential', credential);
-			return credential;
+			// const credential = GoogleAuthProvider.credentialFromResult(result);
+			console.log(result);
 		});
 	}
 

@@ -2,17 +2,17 @@ import {
 	ChangeDetectionStrategy,
 	Component,
 	OnInit,
-	inject,
 	input,
 	Signal,
 	computed,
 	Output,
 	EventEmitter,
+	inject,
 } from '@angular/core';
 import { TripComponent } from '@app/components/trip/trip.component';
 import { TripType } from '@src/app/model/trip';
 import { AddTripComponent } from '@src/app/shared/ui-kit/add-trip/add-trip.component';
-import { StorageService } from '@src/app/services/storage.service';
+import { STORAGE_SERVICE } from '@src/app/services/providers/storage';
 
 @Component({
 	selector: 'wt-trips',
@@ -26,18 +26,18 @@ export class TripsComponent implements OnInit {
 	@Output() tripSelected = new EventEmitter<TripType | null>();
 	filterPhraze = input('');
 
-	private storageService = inject(StorageService);
+	private storageService = inject(STORAGE_SERVICE);
 
-	trips: Signal<TripType[]> = computed(() =>
-		this.storageService
-			.getTrips()
-			.filter(trip =>
+	trips: Signal<TripType[] | undefined> = computed(() => {
+		return this.storageService
+			.trips()
+			?.filter(trip =>
 				trip.city.toLowerCase().includes(this.filterPhraze().toLowerCase())
-			)
-	);
+			);
+	});
 
 	ngOnInit(): void {
-		this.tripSelected.emit(this.trips()[0]);
+		this.tripSelected.emit(this.trips()?.[0]);
 	}
 
 	onSelect(trip: TripType): void {
