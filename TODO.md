@@ -19,6 +19,7 @@
 [] fix timer representing global time - local time
 
 [x] implement authorization
+[] update widget when storage provider changes
 [] implement logout and ui
 [x] create abstract service, provide it through factory
 [] implement PWA for caching

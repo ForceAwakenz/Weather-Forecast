@@ -6,6 +6,6 @@ export abstract class StorageService {
 
 	abstract readonly trips: Signal<TripType[] | null>;
 
-	abstract getTrips(): TripType[];
+	abstract init(userid?: string): void;
 	abstract addTrip(trip: Omit<TripType, 'id'>): void;
 }

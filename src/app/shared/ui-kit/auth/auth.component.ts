@@ -1,5 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	OnDestroy,
+	inject,
+} from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '@src/app/services/auth.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
 	selector: 'wt-auth',
@@ -9,16 +16,22 @@ import { AuthService } from '@src/app/services/auth.service';
 	styleUrl: './auth.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AuthComponent {
+export class AuthComponent implements OnDestroy {
 	private authService = inject(AuthService);
+	private router = inject(Router);
+	private destroy$ = new Subject<void>();
 
 	googleLogin() {
-		console.log('google login');
-		this.authService.googleLogin();
+		this.authService
+			.googleLogin()
+			.pipe(takeUntil(this.destroy$))
+			.subscribe(() => {
+				this.router.navigate(['/user']);
+			});
 	}
 
-	// facebookLogin() {
-	// 	console.log('facebook login');
-	// 	this.authService.facebookLogin();
-	// }
+	ngOnDestroy(): void {
+		this.destroy$.next();
+		this.destroy$.complete();
+	}
 }

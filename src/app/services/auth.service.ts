@@ -8,7 +8,7 @@ import {
 	signOut,
 	user,
 } from '@angular/fire/auth';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root',
@@ -19,11 +19,11 @@ export class AuthService {
 	// private facebookProvider = new FacebookAuthProvider();
 	user$: Observable<User | null> = user(this.auth);
 
-	googleLogin() {
-		signInWithPopup(this.auth, this.googleProvider).then(result => {
-			// const credential = GoogleAuthProvider.credentialFromResult(result);
-			console.log(result);
-		});
+	googleLogin(): Observable<User> {
+		const userPromise = signInWithPopup(this.auth, this.googleProvider).then(
+			result => result.user
+		);
+		return from(userPromise);
 	}
 
 	// facebookLogin() {

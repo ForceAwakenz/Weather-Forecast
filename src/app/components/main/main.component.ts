@@ -18,6 +18,7 @@ import { ICONS } from '@src/app/shared/constants/weather-icons.constant';
 import { WeatherWidgetComponent } from '@app/components/weather-widget/weather-widget.component';
 import { convertToSimpleDayFormat } from '@src/app/shared/utils/time.utils';
 import { AsyncPipe } from '@angular/common';
+import { ModalComponent } from '@src/app/shared/ui-kit/modal/modal.component';
 
 @Component({
 	selector: 'wt-main',
@@ -29,6 +30,7 @@ import { AsyncPipe } from '@angular/common';
 		AddTripComponent,
 		DailyForecastComponent,
 		WeatherWidgetComponent,
+		ModalComponent,
 	],
 	templateUrl: './main.component.html',
 	styleUrl: './main.component.scss',
