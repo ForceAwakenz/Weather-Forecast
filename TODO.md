@@ -3,23 +3,26 @@
 [x] implement modals in application
 
 [x] reimplement Add trip functionality and storage
-[] implement firestore storage
+[x] implement firestore storage
 [x] implement updating ui, when trips updates
 
 [] implement styling
-[] implement styling of modal
 [] add pictures for every city
 [x] implement scroll styling for mozilla
-[] typography
 [] implement back-forward buttons
 [] implement widget background changing with weather
 
 [] move date to CustomFormControls
-[] apply sorting
+[x] apply sorting
 [] fix timer representing global time - local time
+[] implement validation that start date is not later then end date
 
 [x] implement authorization
-[] update widget when storage provider changes
-[] implement logout and ui
+[x] addTrip for firebase store
+[] implement logout and logout on route leave
+[] fix not updating by moving from one account to another
+[x] update widget when storage provider changes
+[x] if I start the page from /user - widget and forecast is not triggering
 [x] create abstract service, provide it through factory
+[] add another list of predifined mocks for auth user
 [] implement PWA for caching

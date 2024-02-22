@@ -11,7 +11,7 @@ export const fireStorageInitResolver: ResolveFn<Observable<boolean>> = () => {
 	return authService.user$.pipe(
 		filter(Boolean),
 		tap(user => {
-			storageService.init(user.uid);
+			storageService.init(user);
 		}),
 		map(() => true)
 	);
