@@ -15,11 +15,14 @@
 [] move date to CustomFormControls
 [x] apply sorting
 [] fix timer representing global time - local time
+[] implement validation that start date is not later then end date
 
 [x] implement authorization
-[] addTrip for firebase store
-[] implement logout and ui
+[x] addTrip for firebase store
+[] implement logout and logout on route leave
+[] fix not updating by moving from one account to another
 [x] update widget when storage provider changes
 [x] if I start the page from /user - widget and forecast is not triggering
 [x] create abstract service, provide it through factory
+[] add another list of predifined mocks for auth user
 [] implement PWA for caching
