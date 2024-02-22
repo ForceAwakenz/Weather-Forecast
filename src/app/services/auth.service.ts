@@ -8,6 +8,7 @@ import {
 	signOut,
 	user,
 } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import { Observable, from } from 'rxjs';
 
 @Injectable({
@@ -17,11 +18,16 @@ export class AuthService {
 	private auth: Auth = inject(Auth);
 	private googleProvider = new GoogleAuthProvider();
 	// private facebookProvider = new FacebookAuthProvider();
+	private router = inject(Router);
+
 	user$: Observable<User | null> = user(this.auth);
 
 	googleLogin(): Observable<User> {
 		const userPromise = signInWithPopup(this.auth, this.googleProvider).then(
-			result => result.user
+			result => {
+				this.router.navigate(['/user']);
+				return result.user;
+			}
 		);
 		return from(userPromise);
 	}
@@ -35,12 +41,8 @@ export class AuthService {
 	// }
 
 	logout() {
-		signOut(this.auth)
-			.then(() => {
-				console.log('signed out');
-			})
-			.catch(error => {
-				console.log('sign out error: ' + error);
-			});
+		signOut(this.auth).catch(error => {
+			console.log('sign out error: ' + error);
+		});
 	}
 }

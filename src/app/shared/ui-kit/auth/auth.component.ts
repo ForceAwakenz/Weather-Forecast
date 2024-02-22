@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@src/app/services/auth.service';
+import { ModalService } from '@src/app/services/modal.service';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -18,16 +19,13 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class AuthComponent implements OnDestroy {
 	private authService = inject(AuthService);
-	private router = inject(Router);
 	private destroy$ = new Subject<void>();
+	private modalService = inject(ModalService);
+	private router = inject(Router);
 
 	googleLogin() {
-		this.authService
-			.googleLogin()
-			.pipe(takeUntil(this.destroy$))
-			.subscribe(() => {
-				this.router.navigate(['/user']);
-			});
+		this.authService.googleLogin().pipe(takeUntil(this.destroy$)).subscribe();
+		this.modalService.closeModal();
 	}
 
 	ngOnDestroy(): void {

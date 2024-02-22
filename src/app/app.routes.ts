@@ -23,4 +23,8 @@ export const routes: Routes = [
 		resolve: { init: fireStorageInitResolver },
 		canActivate: [authGuard],
 	},
+	{
+		path: '**',
+		redirectTo: '',
+	},
 ];

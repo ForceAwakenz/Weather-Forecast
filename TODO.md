@@ -19,8 +19,8 @@
 
 [x] implement authorization
 [x] addTrip for firebase store
-[] implement logout and logout on route leave
-[] fix not updating by moving from one account to another
+[x] implement logout
+[x] fix not updating by moving from one account to another
 [x] update widget when storage provider changes
 [x] if I start the page from /user - widget and forecast is not triggering
 [x] create abstract service, provide it through factory

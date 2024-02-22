@@ -12,9 +12,8 @@ import { WeatherService } from '@src/app/services/weather.service';
 import { CounterComponent } from '@src/app/shared/ui-kit/counter/counter.component';
 import { distinctUntilKeyChanged, filter, map, switchMap } from 'rxjs';
 import { convertToSimpleDayFormat } from '@src/app/shared/utils/time.utils';
-import { ModalService } from '@src/app/services/modal.service';
-import { AuthComponent } from '@src/app/shared/ui-kit/auth/auth.component';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '@src/app/services/auth.service';
 
 @Component({
 	selector: 'wt-weather-widget',
@@ -27,8 +26,8 @@ import { CommonModule } from '@angular/common';
 export class WeatherWidgetComponent {
 	currentTrip = input<TripType | null>(null);
 
-	private modalService = inject(ModalService);
 	private weatherService = inject(WeatherService);
+	user$ = inject(AuthService).user$;
 
 	CITIES = CITIES;
 
@@ -44,10 +43,4 @@ export class WeatherWidgetComponent {
 		map(response => response.days[0]),
 		map(day => ({ ...day, icon: ICONS[day.icon] }))
 	);
-
-	handleAuth() {
-		// if ('true') {
-		this.modalService.showInModal(AuthComponent, { title: 'Login' });
-		// }
-	}
 }

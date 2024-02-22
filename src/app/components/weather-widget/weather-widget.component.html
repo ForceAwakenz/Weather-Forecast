@@ -1,5 +1,14 @@
 <!-- TODO: user picture when he logged -->
-<button class="avatar" (click)="handleAuth()">Log in</button>
+<div class="avatar">
+	@if (user$ | async; as user) {
+	<img [src]="user.photoURL" alt="User profile picture" />
+	} @else {
+	<img
+		src="../../../assets/pictures/avatar_penguin.webp"
+		alt="User profile picture"
+	/>
+	}
+</div>
 
 @if (currentWeather$ | async; as currentWeather) {
 <div class="weather-data">

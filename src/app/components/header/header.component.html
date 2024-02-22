@@ -1,2 +1,10 @@
 <p>Weather <b>Forecast</b></p>
+<p>Wellcome</p>
+@if (user$ | async; as user) {
+<p>{{ user.displayName }}</p>
+<button (click)="handleSignOut()">Sign Out</button>
+} @else {
+<p>Guest</p>
+<button (click)="handleSignIn()">Sign In</button>
+}
 <input [formControl]="filterInput" type="text" name="search" id="search" />
