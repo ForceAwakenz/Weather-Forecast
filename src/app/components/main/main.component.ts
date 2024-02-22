@@ -14,10 +14,11 @@ import { toObservable } from '@angular/core/rxjs-interop';
 import { distinctUntilChanged, filter, map, switchMap } from 'rxjs';
 import { WeatherService } from '@src/app/services/weather.service';
 import { CITIES } from '@src/app/shared/constants/cities.constant';
-import { AsyncPipe } from '@angular/common';
 import { ICONS } from '@src/app/shared/constants/weather-icons.constant';
 import { WeatherWidgetComponent } from '@app/components/weather-widget/weather-widget.component';
 import { convertToSimpleDayFormat } from '@src/app/shared/utils/time.utils';
+import { AsyncPipe } from '@angular/common';
+import { ModalComponent } from '@src/app/shared/ui-kit/modal/modal.component';
 
 @Component({
 	selector: 'wt-main',
@@ -29,6 +30,7 @@ import { convertToSimpleDayFormat } from '@src/app/shared/utils/time.utils';
 		AddTripComponent,
 		DailyForecastComponent,
 		WeatherWidgetComponent,
+		ModalComponent,
 	],
 	templateUrl: './main.component.html',
 	styleUrl: './main.component.scss',

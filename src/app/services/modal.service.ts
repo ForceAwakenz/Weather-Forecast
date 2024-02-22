@@ -16,7 +16,7 @@ export class ModalService {
 
 	showInModal(
 		component: Type<unknown>,
-		inputs: Omit<DynamicComponentOptionsType, 'component'>
+		inputs?: Omit<DynamicComponentOptionsType, 'component'>
 	): void {
 		this._modal$.next({ component, ...inputs });
 	}

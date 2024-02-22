@@ -6,6 +6,7 @@ export type TripType = {
 	city: CityKeys;
 	startDate: string;
 	endDate: string;
+	id: string;
 };
 
 export type CityDataType = {

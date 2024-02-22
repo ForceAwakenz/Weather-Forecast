@@ -9,7 +9,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "Weather-Forecast": {
+    "weather-forecast": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Weather-Forecast:build:production"
+              "buildTarget": "weather-forecast:build:production"
             },
             "development": {
-              "buildTarget": "Weather-Forecast:build:development",
+              "buildTarget": "weather-forecast:build:development",
               "port": 4242
             }
           },
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "Weather-Forecast:build"
+            "buildTarget": "weather-forecast:build"
           }
         },
         "test": {
