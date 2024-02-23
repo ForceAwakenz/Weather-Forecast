@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { BreakedDownTimeType } from '@app/model/time';
 import {
+	convertToUTC,
 	dateNowInMilliseconds,
 	getDays,
 	getHours,
@@ -51,7 +52,7 @@ export class CounterComponent implements OnChanges, OnDestroy {
 
 	updateCounter = () => {
 		const rawTimeDifference = this.reverseCountTo
-			? new Date(this.reverseCountTo).getTime() - dateNowInMilliseconds()
+			? convertToUTC(this.reverseCountTo).getTime() - dateNowInMilliseconds()
 			: 0;
 
 		if (rawTimeDifference > 990) {
