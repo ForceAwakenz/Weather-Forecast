@@ -2,4 +2,20 @@
 
 :host {
 	@include defaultAlignCenter;
+	justify-content: space-around;
+	width: 100%;
+	padding: 2em;
+}
+
+.count {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 1.6rem;
+	font-weight: 700;
+}
+
+.time-measure {
+	font-size: 0.7rem;
+	font-weight: 300;
 }

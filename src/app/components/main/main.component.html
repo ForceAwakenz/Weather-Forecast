@@ -5,9 +5,9 @@
 			[filterPhraze]="filterPhraze()"
 			(tripSelected)="selectTrip($event)"
 		/>
-		<wt-add-trip />
+		<wt-add-trip (click)="onAddTrip()" />
 	</div>
-	<p>Week</p>
+	<p class="week">Week</p>
 	@if (forecasts$ | async; as forecasts) {
 	<div class="forecast-container">
 		@for (forecast of forecasts; track $index) {

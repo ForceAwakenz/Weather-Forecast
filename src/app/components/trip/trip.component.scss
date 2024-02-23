@@ -2,12 +2,31 @@
 
 :host {
 	display: block;
-	padding: 1rem;
-	border: 1px solid #ccc;
+	border: 1px solid hsl(0, 0%, 92%);
 	scroll-snap-align: start;
 	flex: 0 0 $card-width;
+	font-size: 0.7em;
+
+	&:hover {
+		background-color: hsl(0, 0%, 95%);
+	}
+}
+
+.description {
+	padding: 1.5em;
 }
 
 .city-picture {
-	height: 5rem;
+	height: calc($card-width - 1rem);
+	width: $card-width;
+	object-fit: cover;
+	object-position: center center;
+}
+
+.city {
+	font-size: 1.2em;
+}
+
+.date-range {
+	color: hsl(0, 0%, 65%);
 }

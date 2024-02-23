@@ -19,6 +19,8 @@ import { WeatherWidgetComponent } from '@app/components/weather-widget/weather-w
 import { convertToSimpleDayFormat } from '@src/app/shared/utils/time.utils';
 import { AsyncPipe } from '@angular/common';
 import { ModalComponent } from '@src/app/shared/ui-kit/modal/modal.component';
+import { ModalService } from '@src/app/services/modal.service';
+import { AddTripFormComponent } from '@src/app/shared/ui-kit/add-trip-form/add-trip-form.component';
 
 @Component({
 	selector: 'wt-main',
@@ -38,6 +40,7 @@ import { ModalComponent } from '@src/app/shared/ui-kit/modal/modal.component';
 })
 export class MainComponent {
 	private weatherService = inject(WeatherService);
+	private modalService = inject(ModalService);
 
 	filterPhraze = signal<string>('');
 	currentTrip: WritableSignal<TripType | null> = signal(null);
@@ -63,5 +66,11 @@ export class MainComponent {
 
 	selectTrip(trip: TripType | null): void {
 		this.currentTrip.set(trip);
+	}
+
+	onAddTrip() {
+		this.modalService.showInModal(AddTripFormComponent, {
+			title: 'Create trip',
+		});
 	}
 }

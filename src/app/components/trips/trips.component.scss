@@ -1,10 +1,23 @@
 @import '../../shared/style/variables';
 
+:host {
+	display: block;
+	margin-bottom: 0.3em;
+}
+
 .trips-wrapper {
 	display: flex;
-	overflow-x: auto;
+	gap: $card-gap;
+	overflow-x: hidden;
 	scroll-snap-type: x mandatory;
-	width: calc($card-width * 3);
+	width: calc($card-width * 3 + $card-gap * 2 + 6px);
+	padding-left: 1px;
+	padding-bottom: 1.1em;
+
+	&:hover {
+		overflow-x: auto;
+		padding-bottom: 0.85em;
+	}
 
 	&::-webkit-scrollbar {
 		height: 4px;

@@ -1,0 +1,19 @@
+@import '../../style/variables';
+
+:host {
+	height: calc($card-width - 1rem);
+	width: $card-width;
+	display: flex;
+	align-self: flex-start;
+	background-color: hsl(0, 0%, 80%);
+	font-size: 1.1rem;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	&:hover {
+		background-color: hsl(0, 0%, 70%);
+	}
+	&:active {
+		background-color: hsl(0, 0%, 90%);
+	}
+}

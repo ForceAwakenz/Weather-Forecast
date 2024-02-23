@@ -1,3 +1,39 @@
+@import '../../shared/style/mixins';
+
 :host {
 	display: block;
+	padding-block: 2em;
+}
+
+header {
+	@include defaultAlignCenter();
+	gap: 0.7em;
+}
+
+h2 {
+	font-size: 1.4rem;
+	font-weight: 400;
+	margin-right: auto;
+}
+
+#search {
+	font-size: 1.4rem;
+	padding: 0.4em;
+	margin-top: 1.9em;
+	padding-left: 2em;
+	height: 2.2em;
+	width: 10em;
+	background-color: hsl(200, 10%, 90%);
+	border-radius: 0.35em;
+	border: 0;
+}
+
+.input-wrapper {
+	&::before {
+		content: '🔍';
+		font-size: 1.4rem;
+		position: absolute;
+		margin-left: 0.5em;
+		margin-top: 2.3em;
+	}
 }
