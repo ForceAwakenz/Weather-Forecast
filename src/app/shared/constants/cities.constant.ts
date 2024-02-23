@@ -119,4 +119,10 @@ export const CITIES = {
 		requestKey: 'Prague, Czech Republic',
 		imagePath: 'assets/pictures/cities/prague.jpg',
 	},
+	Berlin: {
+		city: 'Berlin',
+		readableName: 'Berlin',
+		requestKey: 'Berlin, Germany',
+		imagePath: 'assets/pictures/cities/berlin.jpg',
+	},
 } as const;

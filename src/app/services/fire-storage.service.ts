@@ -11,6 +11,7 @@ import { TripType } from '../model/trip';
 import { StorageService } from '../model/storage-service.class';
 import { AuthService } from './auth.service';
 import { first } from 'rxjs';
+import { FIREBASE_STARTER_MOCK } from './mocks/trips.mock';
 
 @Injectable({
 	providedIn: 'root',
@@ -35,7 +36,7 @@ export class FireStorageService extends StorageService {
 					photoURL: user.photoURL,
 					displayName: user.displayName,
 					uid: user.uid,
-					trips: null,
+					trips: [...FIREBASE_STARTER_MOCK],
 				};
 
 				setDoc(userRef, userData);

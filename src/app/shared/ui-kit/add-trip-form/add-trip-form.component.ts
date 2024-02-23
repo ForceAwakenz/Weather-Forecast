@@ -1,3 +1,4 @@
+import { CITIES } from '@shared/constants/cities.constant';
 import {
 	ChangeDetectionStrategy,
 	Component,
@@ -39,6 +40,8 @@ export class AddTripFormComponent implements OnInit {
 			new Date(dateNowInMilliseconds() + convertDaysToMilliseconds(14))
 		),
 	};
+
+	CITIES = Object.values(CITIES);
 
 	ngOnInit(): void {
 		this.form = this.fb.group({
