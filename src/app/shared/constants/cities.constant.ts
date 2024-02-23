@@ -38,7 +38,7 @@ export const CITIES = {
 	Dubai: {
 		city: 'Dubai',
 		readableName: 'Dubai',
-		requestKey: 'Dubai, UAE',
+		requestKey: 'Dubai, United Arab Emirates',
 		imagePath: 'assets/pictures/cities/dubai.jpg',
 	},
 	NewYorkCity: {
