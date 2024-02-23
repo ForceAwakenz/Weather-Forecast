@@ -3,7 +3,7 @@
 	<select name="city" id="city" formControlName="city">
 		<option value="">Please select a city</option>
 		@for (city of CITIES; track city.requestKey) {
-		<option [value]="city">{{ city.readableName }}</option>
+		<option [value]="city.city">{{ city.readableName }}</option>
 		}
 	</select>
 	@if (form.get('city')?.touched && form.get('city')?.errors?.['required']) {
