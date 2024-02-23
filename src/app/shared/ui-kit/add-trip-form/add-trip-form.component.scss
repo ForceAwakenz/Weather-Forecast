@@ -1,0 +1,42 @@
+:host {
+	display: block;
+	min-width: max-content;
+	width: 30vw;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3em;
+}
+
+.required-star {
+	color: hsl(0, 70%, 60%);
+}
+
+.form-buttons {
+	width: 100%;
+	display: flex;
+	justify-content: end;
+	gap: 0.5em;
+	margin-top: 1em;
+}
+
+input,
+select {
+	padding: 0.5em;
+	border: 1px solid hsl(0, 0%, 80%);
+	border-radius: 0.2em;
+	margin-bottom: 0.6em;
+}
+
+label {
+	font-size: 0.9em;
+	font-weight: 400;
+}
+
+small {
+	font-size: 0.8em;
+	color: hsl(0, 70%, 60%);
+	margin-top: -0.8em;
+}

@@ -1,12 +1,18 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 @if (options?.component) {
-
-<nav>
-	{{ options?.title }}
-	<button (click)="closeModal()">Ｘ</button>
-</nav>
-<hr />
-<div>
-	<ng-container *ngComponentOutlet="options?.component ?? null"></ng-container>
+<div class="backdrop" (click)="closeModal()">
+	<div class="modal-frame" wtStopPropagation>
+		<nav>
+			{{ options?.title }}
+			<button (click)="closeModal()" class="close-button">Ｘ</button>
+		</nav>
+		<hr />
+		<div class="modal-container">
+			<ng-container
+				*ngComponentOutlet="options?.component ?? null"
+			></ng-container>
+		</div>
+	</div>
 </div>
-
 }

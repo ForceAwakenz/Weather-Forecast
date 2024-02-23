@@ -1,0 +1,13 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	align-items: start;
+}
+
+.btn-accent.google {
+	background-color: hsl(0, 60%, 50%);
+	&hover {
+		background-color: hsl(0, 60%, 40%);
+	}
+}

@@ -1,7 +1,8 @@
 <img [src]="cityPicturePath" alt="City Picture" class="city-picture" />
-<br />
-<p>{{ CITIES[trip.city].readableName }}</p>
-<small
-	>{{ trip.startDate | date : 'dd.MM.yyyy' }} -
-	{{ trip.endDate | date : 'dd.MM.yyyy' }}
-</small>
+<div class="description">
+	<p class="city">{{ CITIES[trip.city].readableName }}</p>
+	<small class="date-range"
+		>{{ trip.startDate | date : 'dd.MM.yyyy' }} -
+		{{ trip.endDate | date : 'dd.MM.yyyy' }}
+	</small>
+</div>

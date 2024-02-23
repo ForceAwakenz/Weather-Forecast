@@ -11,11 +11,12 @@ import { NgComponentOutlet } from '@angular/common';
 import { ModalService } from '@src/app/services/modal.service';
 import { DynamicComponentOptionsType } from '@src/app/model/modal';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { StopPropagationDirective } from '../../directives/stop-propagation.directive';
 
 @Component({
 	selector: 'wt-modal',
 	standalone: true,
-	imports: [NgComponentOutlet],
+	imports: [NgComponentOutlet, StopPropagationDirective],
 	templateUrl: './modal.component.html',
 	styleUrl: './modal.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,

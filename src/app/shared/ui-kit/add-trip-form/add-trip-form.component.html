@@ -1,5 +1,5 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="form">
-	<label for="city"><span>*</span>City</label>
+	<label for="city"><span class="required-star">* </span>City</label>
 	<select name="city" id="city" formControlName="city">
 		<option value="">Please select an option</option>
 		<option value="Kyiv">Kyiv</option>
@@ -9,11 +9,11 @@
 	<small>This field is required</small>
 	}
 
-	<label for="trip"><span>*</span>Start date</label>
+	<label for="startDate"><span class="required-star">* </span>Start date</label>
 	<input
 		formControlName="startDate"
 		type="date"
-		id="starts-from"
+		id="startDate"
 		placeholder="Select date"
 		[min]="dateRestrictions.min"
 		[max]="dateRestrictions.max"
@@ -23,8 +23,9 @@
 	<small>This field is required</small>
 	}
 
-	<label for="trip"><span>*</span>End date</label>
+	<label for="endDate"><span class="required-star">* </span>End date</label>
 	<input
+		id="endDate"
 		formControlName="endDate"
 		type="date"
 		placeholder="Select date"
@@ -36,6 +37,10 @@
 	<small>This field is required</small>
 	}
 
-	<button (click)="closeModal()">Cancel</button>
-	<button type="submit" [disabled]="form.invalid">Save</button>
+	<div class="form-buttons">
+		<button (click)="closeModal()" class="btn btn-flat">Cancel</button>
+		<button type="submit" [disabled]="form.invalid" class="btn btn-accent">
+			Save
+		</button>
+	</div>
 </form>

@@ -1,0 +1,48 @@
+@import '../../style/mixins';
+
+.backdrop {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(109, 109, 120, 0.8);
+}
+
+.modal-frame {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	border-radius: 3px;
+	box-shadow: 3px 3px 10px 4px rgba(0, 0, 0, 0.4);
+}
+
+nav {
+	@include defaultAlignCenter();
+	justify-content: space-between;
+	padding: 1em 1em 0.3em;
+	font-size: 1.2rem;
+	font-weight: 500;
+
+	.close-button {
+		background-color: transparent;
+		border: 0;
+		font-size: 1.1rem;
+		color: hsl(0, 0%, 70%);
+
+		&:hover {
+			color: hsl(0, 0%, 50%);
+		}
+	}
+}
+
+hr {
+	background: transparent;
+	border-top: 1px solid hsl(0, 0%, 80%);
+}
+
+.modal-container {
+	padding: 1.5rem;
+}

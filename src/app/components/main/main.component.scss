@@ -1,14 +1,28 @@
 @import '../../shared/style/mixins';
+@import '../../shared/style/variables';
 
 :host {
 	display: grid;
-	grid-template-columns: 7fr 3fr;
+	grid-template-columns: 4fr 2.1fr;
+	min-height: 100vh;
+}
+
+main {
+	padding-inline: 2em;
 }
 
 .forecast-container {
 	@include defaultAlignCenter;
+	gap: 3.2em;
 }
 
 .trips-container {
 	@include defaultAlignCenter;
+	margin-top: 1em;
+	gap: $card-gap;
+}
+
+.week {
+	font-size: 1.2rem;
+	margin-block: 0.5em;
 }

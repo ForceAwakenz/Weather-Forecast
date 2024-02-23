@@ -1,8 +1,10 @@
-<p>
+<p class="day">
 	{{ forecast.datetime | date : 'EEEE' }}
 </p>
-<p>
+<p class="weather-icon">
 	{{ forecast.icon }}
 </p>
-{{ forecast.tempmax | number : '1.0-0' }}°/
-{{ forecast.tempmin | number : '1.0-0' }}°
+<p class="degrees">
+	{{ forecast.tempmax | number : '1.0-0' }}°/
+	{{ forecast.tempmin | number : '1.0-0' }}°
+</p>

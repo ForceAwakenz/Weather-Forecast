@@ -29,7 +29,6 @@ dd {
 }
 
 body {
-	min-height: 100vh;
 	scroll-behavior: smooth;
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;
@@ -54,4 +53,36 @@ a {
 
 .degree {
 	vertical-align: super;
+}
+
+.btn {
+	color: white;
+	border: none;
+	padding: 0.6em 1.2em;
+	border-radius: 0.1em;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.btn-accent {
+	background-color: hsl(210, 100%, 55%);
+	&:hover {
+		background-color: hsl(210, 100%, 45%);
+	}
+}
+
+.btn-flat {
+	background-color: hsl(0, 0%, 95%);
+	color: hsl(0, 0%, 20%);
+	border: 1px solid hsl(0, 0%, 80%);
+	&:hover {
+		background-color: hsl(0, 0%, 90%);
+	}
+}
+
+.btn-danger {
+	background-color: hsl(350, 50%, 60%);
+	&:hover {
+		background-color: hsl(350, 50%, 50%);
+	}
 }

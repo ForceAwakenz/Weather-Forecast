@@ -5,8 +5,9 @@
 [x] reimplement Add trip functionality and storage
 [x] implement firestore storage
 [x] implement updating ui, when trips updates
+[] implement breadcrumps
 
-[] implement styling
+[x] implement styling
 [] add pictures for every city
 [x] implement scroll styling for mozilla
 [] implement back-forward buttons

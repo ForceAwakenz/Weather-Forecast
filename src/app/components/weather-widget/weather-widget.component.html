@@ -1,4 +1,3 @@
-<!-- TODO: user picture when he logged -->
 <div class="avatar">
 	@if (user$ | async; as user) {
 	<img [src]="user.photoURL" alt="User profile picture" />
@@ -12,16 +11,18 @@
 
 @if (currentWeather$ | async; as currentWeather) {
 <div class="weather-data">
-	<p>{{ currentWeather.datetime | date : 'EEEE' }}</p>
-	<p>
+	<p class="day">{{ currentWeather.datetime | date : 'EEEE' }}</p>
+	<p class="temperature">
+		<span class="weather-icon">
+			{{ currentWeather.icon }}
+		</span>
 		{{ currentWeather.temp | number : '1.0-0' }}<span class="degree">℃</span>
-		{{ currentWeather.icon }}
 	</p>
 </div>
 }
 <!--  -->
 @if (currentTrip()) {
-<p>{{ CITIES[currentTrip()!.city].readableName }}</p>
+<p class="city">{{ CITIES[currentTrip()!.city].readableName }}</p>
 
-<wt-counter [reverseCountTo]="currentTrip()!.startDate" />
+<wt-counter [reverseCountTo]="currentTrip()!.startDate" class="counter" />
 }

@@ -1,24 +1,24 @@
 @if (timeLeft().days) {
 <div class="count">
 	<p>{{ timeLeft().days }}</p>
-	<p>Days</p>
+	<p class="time-measure">DAYS</p>
 </div>
 }
 <!--  -->
 @if (timeLeft().hours || timeLeft().days){
 <div class="count">
 	<p>{{ timeLeft().hours }}</p>
-	<p>Hours</p>
+	<p class="time-measure">HOURS</p>
 </div>
 }
 <!--  -->
 @if (timeLeft().minutes || timeLeft().hours || timeLeft().days){
 <div class="count">
 	<p>{{ timeLeft().minutes }}</p>
-	<p>Minutes</p>
+	<p class="time-measure">MINUTES</p>
 </div>
 }
 <div class="count">
 	<p>{{ timeLeft().seconds }}</p>
-	<p>Seconds</p>
+	<p class="time-measure">SECONDS</p>
 </div>
