@@ -40,7 +40,7 @@ export class FireStorageService extends StorageService {
 				};
 
 				setDoc(userRef, userData);
-				this._trips.set(null);
+				this._trips.set(FIREBASE_STARTER_MOCK);
 				console.warn('New user was created in Firestore.');
 			}
 		});
